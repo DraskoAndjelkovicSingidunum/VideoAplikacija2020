@@ -33,9 +33,14 @@ import { AdministratorController } from './controller/api/administrator.controll
       Tag,
       TagVideo,
       Video
-    ]),
+    ])
   ],
-  controllers: [AppController, AdministratorController],
-  providers: [AdministratorService],
+  controllers: [
+    AppController, 
+    AdministratorController
+  ],
+  providers: [
+    AdministratorService
+  ],
 })
 export class AppModule {}
