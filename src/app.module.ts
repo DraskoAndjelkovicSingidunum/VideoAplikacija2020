@@ -9,6 +9,8 @@ import { Tag } from 'entities/tag.entity';
 import { TagVideo } from 'entities/tag.video.entity';
 import { Video } from 'entities/video.entity';
 import { AdministratorController } from './controller/api/administrator.controller';
+import { CategoryService } from './services/category/category.service';
+import { CategoryController } from './controller/api/category.controller';
 
 @Module({
   imports: [
@@ -37,10 +39,12 @@ import { AdministratorController } from './controller/api/administrator.controll
   ],
   controllers: [
     AppController, 
-    AdministratorController
+    AdministratorController,
+    CategoryController
   ],
   providers: [
-    AdministratorService
+    AdministratorService,
+    CategoryService
   ],
 })
 export class AppModule {}
