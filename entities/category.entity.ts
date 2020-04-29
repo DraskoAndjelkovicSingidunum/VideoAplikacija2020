@@ -1,9 +1,9 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Video } from "./video.entity";
 
-@Index("fk_category_parent__category_id", ["parentCategoryId"], {})
 @Index("uq_category_name", ["name"], { unique: true })
 @Index("uq_category_video_path", ["videoPath"], { unique: true })
+@Index("fk_category_parent__category_id", ["parentCategoryId"], {})
 @Entity("category")
 export class Category {
   @PrimaryGeneratedColumn({ type: "int", name: "category_id", unsigned: true })

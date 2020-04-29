@@ -11,4 +11,7 @@ export class Administrator {
 
   @Column({ type: "varchar", name: "password_hash", length: 128 })
   passwordHash: string;
+
+  @Column({ type: "tinyint", name: "is_active", unsigned: true })
+  isActive: number;
 }
