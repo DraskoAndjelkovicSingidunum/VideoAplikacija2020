@@ -11,6 +11,9 @@ import { Video } from 'src/entities/video.entity';
 import { AdministratorController } from './controller/api/administrator.controller';
 import { CategoryService } from './services/category/category.service';
 import { CategoryController } from './controller/api/category.controller';
+import "reflect-metadata";
+import { VideoController } from './controller/api/video.controller';
+import { VideoService } from './services/video/video.service';
 
 @Module({
   imports: [
@@ -40,11 +43,13 @@ import { CategoryController } from './controller/api/category.controller';
   controllers: [
     AppController, 
     AdministratorController,
-    CategoryController
+    CategoryController,
+    VideoController
   ],
   providers: [
     AdministratorService,
-    CategoryService
+    CategoryService,
+    VideoService
   ],
 })
 export class AppModule {}
