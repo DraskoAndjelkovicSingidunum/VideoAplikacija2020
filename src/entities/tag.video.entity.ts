@@ -9,10 +9,10 @@ export class TagVideo {
   @PrimaryGeneratedColumn({ type: "int", name: "tag_video_id", unsigned: true })
   tagVideoId: number;
 
-  @Column("int", { name: "video_id", unsigned: true })
+  @Column({ type: "int", name: "video_id", unsigned: true })
   videoId: number;
 
-  @Column("int", { name: "tag_id", unsigned: true })
+  @Column({ type: "int", name: "tag_id", unsigned: true })
   tagId: number;
 
   @ManyToOne(() => Tag, 

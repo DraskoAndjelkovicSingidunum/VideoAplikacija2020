@@ -1,6 +1,6 @@
-import { Column, Entity, Index, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { TagVideo } from "./tag.video.entity";
+import { Column, Entity, Index, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "./category.entity";
+import { TagVideo } from "./tag.video.entity";
 
 @Index("uq_video_video_path", ["videoPath"], { unique: true })
 @Entity("video")
@@ -17,15 +17,9 @@ export class Video {
   @Column({ type: "varchar", length: 128 })
   description: string;
 
-  @OneToMany(() => TagVideo, 
-  tagVideo => tagVideo.video)
-  tagVideos: TagVideo[];
+  @OneToOne(() => Category, (category) => category.video)
+  category: Category;
 
-  @OneToOne(() => Category, 
-  category => category.video, {
-    onDelete: "RESTRICT",
-    onUpdate: "CASCADE",
-  })
-  @JoinColumn([{ name: "video_path", referencedColumnName: "videoPath" }])
-  videoPath2: Category;
+  @OneToMany(() => TagVideo, (tagVideo) => tagVideo.video)
+  tagVideos: TagVideo[];
 }
