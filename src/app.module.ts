@@ -14,6 +14,8 @@ import { CategoryController } from './controller/api/category.controller';
 import "reflect-metadata";
 import { VideoController } from './controller/api/video.controller';
 import { VideoService } from './services/video/video.service';
+import { TagController } from './controller/api/tag.controller';
+import { TagService } from './services/tag/tag.service';
 
 @Module({
   imports: [
@@ -44,12 +46,14 @@ import { VideoService } from './services/video/video.service';
     AppController, 
     AdministratorController,
     CategoryController,
-    VideoController
+    VideoController,
+    TagController
   ],
   providers: [
     AdministratorService,
     CategoryService,
-    VideoService
+    VideoService,
+    TagService
   ],
 })
 export class AppModule {}
