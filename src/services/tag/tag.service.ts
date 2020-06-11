@@ -16,33 +16,35 @@ export class TagService extends TypeOrmCrudService<Tag> {
         super(tag);
     }
 
+    //mechanism for getting all Tags
     getAll(): Promise<Tag[]> {
         return this.tag.find();
     }
 
+    //mechanism for getting Tag by Id
     getById(id: number): Promise<Tag> {
         return this.tag.findOne(id);
     }
+    //mechanism for adding new Tag
+    async add(data: AddTagDto): Promise<Tag | ApiResponse> {
+    const newTag: Tag  = new Tag();
+    newTag.name = data.name;
 
-        async add(data: AddTagDto): Promise<Tag | ApiResponse> {
-        const newTag: Tag  = new Tag();
-        newTag.name = data.name;
-
-        const savedTag = await this.tag.save(newTag);
+    const savedTag = await this.tag.save(newTag);
         
-        return this.tag.findOne(savedTag.tagId)
-        };
+    return this.tag.findOne(savedTag.tagId)
+    };
 
-        //mechanism for editing existing Tag
-        async editById(id: number, data: EditTagDto): Promise<Tag | ApiResponse> {
-        const tag: Tag = await this.tag.findOne(id);
-        tag.name = data.name;
+    //mechanism for editing existing Tag
+    async editById(id: number, data: EditTagDto): Promise<Tag | ApiResponse> {
+    const tag: Tag = await this.tag.findOne(id);
+    tag.name = data.name;
 
-        if (tag === undefined) {
+    if (tag === undefined) {
         return new Promise((resolve) => {
             resolve(new ApiResponse("error", -1002));
             });
         }
 
-        return this.tag.save(tag);
-        }};
+    return this.tag.save(tag);
+    }};

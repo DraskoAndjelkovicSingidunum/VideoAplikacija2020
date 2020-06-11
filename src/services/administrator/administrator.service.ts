@@ -31,8 +31,6 @@ export class AdministratorService {
         newAdmin.username = data.username;
         newAdmin.passwordHash = passwordHashString;
 
-        //return this.administrator.save(newAdmin);
-
         return new Promise((resolve) => {
             this.administrator.save(newAdmin)
             .then(data => resolve(data))
@@ -43,7 +41,7 @@ export class AdministratorService {
         });
     }  
 
-    //mechanism for editing existing Administrator's password
+    //mechanism for editing an existing Administrator's password
     async editById(id: number, data: EditAdministratorDto): Promise<Administrator | ApiResponse> {
         const admin: Administrator = await this.administrator.findOne(id);
 
