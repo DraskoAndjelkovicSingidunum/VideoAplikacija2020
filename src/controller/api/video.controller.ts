@@ -1,8 +1,9 @@
-import { Controller, Param, Get } from "@nestjs/common";
+import { Controller, Param, Get, Put, Body } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Video } from "src/entities/video.entity";
 import { VideoService } from "src/services/video/video.service";
 import { ApiResponse } from 'src/entities/misc/api.response.class';
+import { AddVideoDto } from "src/dtos/video/add.video.dto";
 
 @Controller('api/video')
 @Crud({
@@ -35,7 +36,6 @@ export class VideoController {
     constructor(
         public videoService: VideoService) {}
 
-        
         //GET http://localhost:3000/api/video/
         @Get() 
         getAll(): Promise<Video[]> {
@@ -54,5 +54,11 @@ export class VideoController {
 
             resolve(video);
         });
+    }
+
+        //PUT http://localhost:3000/api/video/createVideo/
+        @Put('createVideo')
+        createVideo( @Body() data: AddVideoDto): Promise<Video | ApiResponse> {
+        return this.videoService.createVideo(data);
     }
 }
