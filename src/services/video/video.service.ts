@@ -32,7 +32,7 @@ export class VideoService extends TypeOrmCrudService<Video> {
         const newVideo: Video  = new Video();
         newVideo.title       = data.title;
         newVideo.description = data.description;
-        newVideo.videoPath   = data.videopath;
+        newVideo.videoPath   = data.videoPath;
 
         const savedVideo = await this.video.save(newVideo);
 
