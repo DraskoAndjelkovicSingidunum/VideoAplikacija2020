@@ -17,6 +17,17 @@ export class AdministratorService {
         return this.administrator.find();
     }
 
+    async getByUsername(username: string): Promise<Administrator | null> {
+        const admin = await this.administrator.findOne({
+            username: username
+        });
+
+        if (admin) {
+            return admin;
+        }
+        return null;
+    }
+
     getById(id: number): Promise<Administrator> {
         return this.administrator.findOne(id);
     } 
@@ -30,6 +41,7 @@ export class AdministratorService {
         const newAdmin: Administrator = new Administrator();
         newAdmin.username = data.username;
         newAdmin.passwordHash = passwordHashString;
+        newAdmin.isActive = data.isActive;
 
         return new Promise((resolve) => {
             this.administrator.save(newAdmin)
@@ -41,7 +53,7 @@ export class AdministratorService {
         });
     }  
 
-    //mechanism for editing an existing Administrator's password
+    //mechanism for editing an existing Administrator's password and status
     async editById(id: number, data: EditAdministratorDto): Promise<Administrator | ApiResponse> {
         const admin: Administrator = await this.administrator.findOne(id);
 
@@ -56,6 +68,7 @@ export class AdministratorService {
         const passwordHashString = passwordHash.digest('hex').toUpperCase();
 
         admin.passwordHash = passwordHashString;
+        admin.isActive = data.isActive;
 
         return this.administrator.save(admin);
     }
