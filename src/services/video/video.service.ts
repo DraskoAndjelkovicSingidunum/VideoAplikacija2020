@@ -20,6 +20,10 @@ export class VideoService extends TypeOrmCrudService<Video> {
         super(video);
     }
 
+    add(newVideo: Video): Promise<Video> {
+        return this.video.save(newVideo);
+    }
+
     getAll(): Promise<Video[]> {
         return this.video.find();
     }
@@ -32,7 +36,6 @@ export class VideoService extends TypeOrmCrudService<Video> {
         const newVideo: Video  = new Video();
         newVideo.title       = data.title;
         newVideo.description = data.description;
-        newVideo.videoPath   = data.videoPath;
 
         const savedVideo = await this.video.save(newVideo);
 
