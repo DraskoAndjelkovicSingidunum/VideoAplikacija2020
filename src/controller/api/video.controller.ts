@@ -10,7 +10,6 @@ import { diskStorage } from "multer";
 import * as fileType from 'file-type';
 import * as fs from 'fs';
 
-
 @Controller('api/video')
 @Crud({
     model: {
@@ -73,7 +72,7 @@ export class VideoController {
         @UseInterceptors(
             FileInterceptor('video', {
                 storage: diskStorage({
-                    destination: StorageConfig.videoDestination,
+                    destination: StorageConfig.video.destination,
                     filename: (req, file, callback) => {
                         
                         const original = file.originalname;
@@ -121,7 +120,7 @@ export class VideoController {
                     // 3. Limit velicine upload-a videa
                 limits: {
                     files: 1,
-                    fileSize: StorageConfig.videoMaxFileSize
+                    fileSize: StorageConfig.video.maxSize
                 }
             })
         )
@@ -151,8 +150,6 @@ export class VideoController {
 
                 return new ApiResponse('error', -4002, 'Bad file content type!');
             }
-
-            // TODO: save a resized file
 
             const newVideo: Video = new Video();
             newVideo.videoId        = videoId;
