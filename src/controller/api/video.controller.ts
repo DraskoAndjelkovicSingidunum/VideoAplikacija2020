@@ -17,7 +17,7 @@ import * as fs from 'fs';
     },
     params: {
         id: {
-            field: 'video_id',
+            field: 'videoId',
             type: 'number',
             primary: true
         }

@@ -13,7 +13,7 @@ import { EditTagDto } from "src/dtos/tag/edit.tag.dto";
     },
     params: {
         id: {
-            field: 'tag_id',
+            field: 'tagId',
             type: 'number',
             primary: true
         }
