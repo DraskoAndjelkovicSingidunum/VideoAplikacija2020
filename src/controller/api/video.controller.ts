@@ -1,4 +1,4 @@
-import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile } from "@nestjs/common";
+import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Video } from "src/entities/video.entity";
 import { VideoService } from "src/services/video/video.service";
@@ -7,6 +7,9 @@ import { AddVideoDto } from "src/dtos/video/add.video.dto";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { StorageConfig } from "config/storage.config";
 import { diskStorage } from "multer";
+import * as fileType from 'file-type';
+import * as fs from 'fs';
+
 
 @Controller('api/video')
 @Crud({
@@ -100,13 +103,15 @@ export class VideoController {
                 fileFilter: (req, file, callback) => {
                     // 1. Check ekstenzije: MP4
                     if (!file.originalname.toLowerCase().match(/\.(mp4)$/)) {
-                        callback(new Error('Bad file extension!'), false);
+                        req.fileFilterError = 'Bad file extension!';
+                        callback(null, false);
                         return;
                     }
 
-                    // 2. Check tipa sadrzaja: mpeg4 (mimetype)
+                    // 2. Check tipa sadrzaja: video/mp4 (mimetype)
                     if (!file.mimetype.includes('mp4')) {
-                        callback(new Error('Bad file content!'), false);
+                        req.fileFilterError = 'Bad file content!';
+                        callback(null, false);
                         return;
                     }
 
@@ -116,11 +121,39 @@ export class VideoController {
                     // 3. Limit velicine upload-a videa
                 limits: {
                     files: 1,
-                    fieldSize: StorageConfig.videoMaxFileSize
+                    fileSize: StorageConfig.videoMaxFileSize
                 }
             })
         )
-        async uploadVideo(@Param('id') videoId: number, @UploadedFile() video): Promise<ApiResponse | Video> {
+        async uploadVideo(
+            @Param('id') videoId: number, 
+            @UploadedFile() video,
+            @Req() req
+            ): Promise<ApiResponse | Video> {
+            if (req.fileFilterError) {
+                return new ApiResponse('error', -4002, req.fileFilterError);
+            }
+
+            if (!video) {
+                return new ApiResponse('error', -4002, 'File not uploaded!');
+            }
+
+            const fileTypeResult = await fileType.fromFile(video.path);
+            if (!fileTypeResult) {
+                fs.unlinkSync(video.path);
+
+                return new ApiResponse('error', -4002, 'Cannot detect file type!');
+            }
+
+            const realMimeType = fileTypeResult.mime;
+            if (!realMimeType.includes('mp4')) {
+                fs.unlinkSync(video.path);
+
+                return new ApiResponse('error', -4002, 'Bad file content type!');
+            }
+
+            // TODO: save a resized file
+
             const newVideo: Video = new Video();
             newVideo.videoId        = videoId;
             newVideo.videoPath      = video.filename;
