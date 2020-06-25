@@ -1,4 +1,4 @@
-import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req } from "@nestjs/common";
+import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req, Delete } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Video } from "src/entities/video.entity";
 import { VideoService } from "src/services/video/video.service";
@@ -161,5 +161,29 @@ export class VideoController {
             }
 
             return savedVideo;
+        }
+
+        // http://localhost:3000/api/video/1/deleteVideo/
+        @Delete(':videoId/deleteVideo/')
+        public async deleteVideo(@Param('videoId') videoId: number) {
+            const video = await this.videoService.findOne({
+                videoId: videoId
+            });
+
+            if(!video) {
+                return new ApiResponse('error', -4004, "Video not found!");
+            }
+
+            try {
+                fs.unlinkSync(StorageConfig.video.destination + video.videoPath);
+            } catch (e) { }
+
+            const deleteResult = await this.videoService.deleteById(videoId);
+
+            if(deleteResult.affected == 0) {
+                    return new ApiResponse('error', -4004, "Video not found!");
+            }
+
+            return new ApiResponse('ok', -4004, "One video deleted!");
         }
 }

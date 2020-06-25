@@ -24,6 +24,10 @@ export class VideoService extends TypeOrmCrudService<Video> {
         return this.video.save(newVideo);
     }
 
+    async deleteById(id: number) {
+        return await this.video.delete(id);
+    }
+
     getAll(): Promise<Video[]> {
         return this.video.find();
     }
