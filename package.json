@@ -28,6 +28,7 @@
     "@nestjsx/crud": "^4.4.5",
     "@nestjsx/crud-request": "^4.4.5",
     "@nestjsx/crud-typeorm": "^4.4.5",
+    "@types/express-serve-static-core": "^4.17.8",
     "class-transformer": "^0.2.3",
     "file-type": "^14.6.2",
     "jsonwebtoken": "^8.5.1",

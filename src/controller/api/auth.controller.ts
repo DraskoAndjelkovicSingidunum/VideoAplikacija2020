@@ -1,6 +1,6 @@
 import { Controller, Post, Body, Req } from "@nestjs/common";
 import { AdministratorService } from "src/services/administrator/administrator.service";
-import { ApiResponse } from "src/entities/misc/api.response.class";
+import { ApiResponse } from "src/misc/api.response.class";
 import * as crypto from 'crypto';
 import { LoginInfoDto } from "src/dtos/auth/login.info.dto";
 import { LoginAdministratorDto } from "src/dtos/administrator/login.administrator.dto";

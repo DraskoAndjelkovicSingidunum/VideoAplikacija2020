@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Tag } from 'src/entities/tag.entity';
 import { AddTagDto } from 'src/dtos/tag/add.tag.dto';
-import { ApiResponse } from 'src/entities/misc/api.response.class';
+import { ApiResponse } from 'src/misc/api.response.class';
 import { EditTagDto } from 'src/dtos/tag/edit.tag.dto';
 
 @Injectable()

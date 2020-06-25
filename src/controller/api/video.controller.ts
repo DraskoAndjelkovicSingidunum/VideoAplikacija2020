@@ -1,8 +1,8 @@
-import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req, Delete, Patch } from "@nestjs/common";
+import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req, Delete, Patch, UseGuards } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Video } from "src/entities/video.entity";
 import { VideoService } from "src/services/video/video.service";
-import { ApiResponse } from 'src/entities/misc/api.response.class';
+import { ApiResponse } from 'src/misc/api.response.class';
 import { AddVideoDto } from "src/dtos/video/add.video.dto";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { StorageConfig } from "config/storage.config";
@@ -10,6 +10,8 @@ import { diskStorage } from "multer";
 import * as fileType from 'file-type';
 import * as fs from 'fs';
 import { EditVideoDto } from "src/dtos/video/edit.video.dto";
+import { AllowToRoles } from "src/misc/allow.to.roles.descriptor";
+import { RoleCheckerGuard } from "src/misc/role.checker.guard";
 
 @Controller('api/video')
 @Crud({
@@ -68,17 +70,23 @@ export class VideoController {
 
         //PUT http://localhost:3000/api/video/createVideo/
         @Put('createVideo')
+        @UseGuards(RoleCheckerGuard)
+        @AllowToRoles('administrator')
         createVideo( @Body() data: AddVideoDto): Promise<Video | ApiResponse> {
         return this.videoService.createVideo(data);
     }
         //PATCH http://localhost:3000/api/video/2/
         @Patch(':id')
+        @UseGuards(RoleCheckerGuard)
+        @AllowToRoles('administrator')
         editFullVideo(@Param('id') id: number, @Body() data: EditVideoDto){
             return this.videoService.editFullVideo(id, data);
         }
 
         //POST http://localhost:3000/api/video/:id/uploadVideo/
         @Post(':id/uploadVideo')
+        @UseGuards(RoleCheckerGuard)
+        @AllowToRoles('administrator')
         @UseInterceptors(
             FileInterceptor('video', {
                 storage: diskStorage({
@@ -175,6 +183,8 @@ export class VideoController {
 
         // http://localhost:3000/api/video/1/deleteVideo/
         @Delete(':videoId/deleteVideo/')
+        @UseGuards(RoleCheckerGuard)
+        @AllowToRoles('administrator')
         public async deleteVideo(@Param('videoId') videoId: number) {
             const video = await this.videoService.findOne({
                 videoId: videoId

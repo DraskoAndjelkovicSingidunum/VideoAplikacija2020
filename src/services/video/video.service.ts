@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Video } from 'src/entities/video.entity';
 import { AddVideoDto } from 'src/dtos/video/add.video.dto';
-import { ApiResponse } from 'src/entities/misc/api.response.class';
+import { ApiResponse } from 'src/misc/api.response.class';
 import { Category } from 'src/entities/category.entity';
 import { EditVideoDto } from 'src/dtos/video/edit.video.dto';
 
