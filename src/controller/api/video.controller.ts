@@ -1,4 +1,4 @@
-import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req, Delete, Patch, UseGuards } from "@nestjs/common";
+import { Controller, Param, Get, Body, Post, UseInterceptors, UploadedFile, Req, Delete, Patch, UseGuards } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Video } from "src/entities/video.entity";
 import { VideoService } from "src/services/video/video.service";
@@ -40,8 +40,23 @@ import { RoleCheckerGuard } from "src/misc/role.checker.guard";
     },
 
     routes: {
-        exclude: [ 'updateOneBase', 'replaceOneBase', 'deleteOneBase' ],
-    },
+        only: [
+            "getManyBase",
+            "getOneBase",
+        ],
+        getManyBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles('administrator'),
+            ],
+        },
+        getOneBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles('administrator'),
+            ],
+        },
+    }
 })
 
 export class VideoController {
@@ -68,8 +83,8 @@ export class VideoController {
         });
     }
 
-        //PUT http://localhost:3000/api/video/createVideo/
-        @Put('createVideo')
+        //POST http://localhost:3000/api/video/
+        @Post()
         @UseGuards(RoleCheckerGuard)
         @AllowToRoles('administrator')
         createVideo( @Body() data: AddVideoDto): Promise<Video | ApiResponse> {
