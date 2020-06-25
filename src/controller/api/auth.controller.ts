@@ -2,20 +2,22 @@ import { Controller, Post, Body, Req } from "@nestjs/common";
 import { AdministratorService } from "src/services/administrator/administrator.service";
 import { ApiResponse } from "src/entities/misc/api.response.class";
 import * as crypto from 'crypto';
-import { LoginInfoAdministratorDto } from "src/dtos/administrator/login.info.administrator.dto";
+import { LoginInfoDto } from "src/dtos/auth/login.info.dto";
 import { LoginAdministratorDto } from "src/dtos/administrator/login.administrator.dto";
 import * as jwt from 'jsonwebtoken';
-import { JwtDataAdministratorDto } from "src/dtos/administrator/jwt.data.administrator.dto";
+import { JwtDataDto } from "src/dtos/auth/jwt.data.dto";
 import { Request } from "express";
 import { jwtSecret } from "config/jwt.secret";
 
 
 @Controller('auth')
 export class AuthController {
-    constructor ( public administratorService: AdministratorService ) {}
+    constructor ( 
+        public administratorService: AdministratorService 
+        ) {}
 
-    @Post('login') //http://localhost:3000/auth/login/
-    async doLogin(@Body() data: LoginAdministratorDto, @Req() req: Request): Promise< LoginInfoAdministratorDto | ApiResponse> {
+    @Post('administrator/login') //http://localhost:3000/auth/administrator/login/
+    async doAdministratorLogin(@Body() data: LoginAdministratorDto, @Req() req: Request): Promise< LoginInfoDto | ApiResponse> {
         const administrator = await this.administratorService.getByUsername(data.username);
 
         if (!administrator) {
@@ -30,9 +32,10 @@ export class AuthController {
             return new Promise(resolve => resolve(new ApiResponse('error', -3002)));
         }
 
-        const jwtData = new JwtDataAdministratorDto();
-        jwtData.administratorId = administrator.administratorId;
-        jwtData.username = administrator.username;
+        const jwtData = new JwtDataDto();
+        jwtData.role = "administrator";
+        jwtData.id = administrator.administratorId;
+        jwtData.identity = administrator.username;
         
         const sada = new Date();
         sada.setDate(sada.getDate() + 14);
@@ -44,7 +47,7 @@ export class AuthController {
 
         const token: string = jwt.sign(jwtData.toPlainObject(), jwtSecret);
 
-        const responseObject = new LoginInfoAdministratorDto(
+        const responseObject = new LoginInfoDto(
             administrator.administratorId,
             administrator.username,
             administrator.isActive,
