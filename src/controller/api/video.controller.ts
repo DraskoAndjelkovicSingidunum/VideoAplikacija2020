@@ -39,7 +39,7 @@ import { RoleCheckerGuard } from "src/misc/role.checker.guard";
         }
     },
 
-    routes: {
+   routes: {
         only: [
             "getManyBase",
             "getOneBase",

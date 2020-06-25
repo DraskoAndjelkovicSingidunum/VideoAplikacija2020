@@ -293,7 +293,7 @@
 				{
 					"name": "Add a new administrator",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -319,196 +319,12 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "Add a new administrator - SUCCESS",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"username\": \"pperic\",\n\t\"password\": \"NekaTanjaLozinka!\"\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/administrator/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"administrator",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "187"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"bb-cZsQSjE2u+PFx944Ggrkq5Vziy8\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 30 Apr 2020 22:17:16 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"username\": \"pperic\",\n    \"passwordHash\": \"1B4671D4078E608F81F1E05BBAFE0D403C6BF116BA28FC28B28620F7C50327298FCEBB275C8C2AD7E34D41DEF427DA7B265E40D9489C84E9796A6437577A86CB\",\n    \"administratorId\": 4\n}"
-						},
-						{
-							"name": "Add a new administrator - ERROR - username taken",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"username\": \"pperic\",\n\t\"password\": \"NekaTanjaLozinka!\"\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/administrator/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"administrator",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "52"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"34-t4k/9UI9MQaVcBQ68YkMUdFYBok\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 30 Apr 2020 22:35:47 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1001,\n    \"message\": null\n}"
-						},
-						{
-							"name": "Add a new administrator",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"username\": \"peraPeric\",\n\t\"password\": \"peraPeric!\"\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/administrator/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"administrator",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "190"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"be-t6qgr3wxbUfGeae33l7T+2ipks4\""
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 09 Jun 2020 13:40:59 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"username\": \"peraPeric\",\n    \"passwordHash\": \"D41DDBE88FD000DC73441E94C5FED5BDE07A80F1E3C53D6F36D3D5BF9D9F1A0A5BB2ADFC526B254ADF79DD597E02420DDD2035ADD95011B093EC8C507E671404\",\n    \"administratorId\": 9\n}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Edit an existing administrator",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -518,7 +334,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"password\": \"Drasko12345\"\n}"
+							"raw": "{\n\t\"password\": \"Drasko12345\",\n\t\"isActive\": 1\n}",
+							"options": {
+								"raw": {}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/administrator/8/",
@@ -535,256 +354,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "Edit an existing administrator",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"password\": \"Drasko123\"\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/administrator/8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"administrator",
-										"8",
-										""
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "211"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"d3-UfPDnlSKEfHkKZIh0v6djniqOuM\""
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 19 May 2020 23:00:47 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"administratorId\": 8,\n    \"username\": \"draskoandjelkovic\",\n    \"passwordHash\": \"E8DBF1A87C52DFBE4022FB3298043E5847CB91CE751FAD5546F15CA89EE577FCCD1EC60E33962FB0870A2BC2B9040653BEACDAB33976C4A08E3E630B7D0F3E63\",\n    \"isActive\": 0\n}"
-						},
-						{
-							"name": "Edit an administrator",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"password\": \"Drasko123\"\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/administrator//",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"administrator",
-										"",
-										""
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "200"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"c8-cCpaWl+ix6tbPpvcGkuMRBVLu74\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 01 May 2020 10:10:28 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"administratorId\": 1,\n    \"username\": \"drasko\",\n    \"passwordHash\": \"80511108AFB0F965A336651BBA51BCF4A8A476901FAB1AB5EB5FD5709A9CBE5D78F12D641888B590BEDC6D3C1A99E5EF10F085A8C42EDB8D9F8121E915533524\",\n    \"isActive\": 1\n}"
-						},
-						{
-							"name": "Edit an existing administrator",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"password\": \"Drasko12345\"\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/administrator/8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"administrator",
-										"8",
-										""
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "211"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"d3-KpPrdl/aZwCMIr550RrV1Cvscmk\""
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 09 Jun 2020 13:41:20 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"administratorId\": 8,\n    \"username\": \"draskoandjelkovic\",\n    \"passwordHash\": \"E320A2A7D871A401FD622DC25D0FABDB2FF21FD7B57E95AF6D33663E1B322EFA2400C27E2FE7854903AFE6ED6828DCFA49478DE9717B5B1E246B9E6901BE7871\",\n    \"isActive\": 0\n}"
-						},
-						{
-							"name": "Edit an existing administrator",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"password\": \"Smilja123\"\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/administrator/3/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"administrator",
-										"3",
-										""
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "200"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"c8-HoDYRqxZptNieN1JjCascky8CQU\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 01 May 2020 10:13:15 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"administratorId\": 3,\n    \"username\": \"smilja\",\n    \"passwordHash\": \"8A7EE07E02A734F3F7D4E55740167593CE8B7C818ACA33C4D862929E0ACC7346420781EE1C5DCF8BB62DB1321FAC70BE3D634849C6404ACC3842DBE1F2FED6FD\",\n    \"isActive\": 1\n}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Edit a non-existing administrator",
@@ -880,6 +450,28 @@
 							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1002,\n    \"message\": null\n}"
 						}
 					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b14da21a-145c-49e0-af4c-ea0faa72fb8f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "77212cee-8e6b-4168-9f5d-5480139e8ec2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1309,18 +901,21 @@
 					]
 				},
 				{
-					"name": "Add new video",
+					"name": "Edit a single video",
 					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Sport Car BMW\",\r\n    \"description\": \"BMW Interior\",\r\n    \"name\": \"Car\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
 							}
-						],
+						},
 						"url": {
-							"raw": "http://localhost:3000/api/video/createVideo",
+							"raw": "http://localhost:3000/api/video/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1329,7 +924,7 @@
 							"path": [
 								"api",
 								"video",
-								"createVideo"
+								"2"
 							]
 						}
 					},
@@ -1390,6 +985,126 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"videoId\": 75,\n    \"videoPath\": \"test3\",\n    \"title\": \"test3\",\n    \"description\": \"test3\",\n    \"category\": null\n}"
+						},
+						{
+							"name": "Add new video",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"videoId\": \"test123\",\r\n    \"title\": \"test123\",\r\n    \"description\": \"test123\",\r\n    \"videoPath\": \"test123\",\r\n    \"name\": \"test123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/video/createVideo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"video",
+										"createVideo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "94"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5e-UgLF2hoCR9lirATCiz1DpPaiGZE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jun 2020 23:23:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"videoId\": 85,\n    \"videoPath\": \"test123\",\n    \"title\": \"test123\",\n    \"description\": \"test123\",\n    \"category\": null\n}"
+						},
+						{
+							"name": "Edit a single video",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Sport Car BMW\",\r\n    \"description\": \"BMW Interior\",\r\n    \"categoryId\": 17,\r\n    \"name\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/video/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"video",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "176"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b0-ST180CVJfzWBMRG+0KO9ckCmigE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jun 2020 13:14:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"videoId\": 2,\n    \"videoPath\": \"storage/video2.mp4\",\n    \"title\": \"Sport Car BMW\",\n    \"description\": \"BMW Interior\",\n    \"category\": {\n        \"categoryId\": 17,\n        \"name\": \"Cars\",\n        \"parentCategoryId\": 16,\n        \"videoId\": 2\n    }\n}"
 						},
 						{
 							"name": "Add new video - FailedUpload",
@@ -1477,6 +1192,307 @@
 							"body": "{\n    \"videoId\": 74,\n    \"videoPath\": \"0\",\n    \"title\": \"0\",\n    \"description\": \"0\",\n    \"category\": null\n}"
 						}
 					]
+				},
+				{
+					"name": "Upload video",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/C:/Users/dandjelkovic/Desktop/assets/video4.mp4"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/video/6/uploadVideo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"video",
+								"6",
+								"uploadVideo",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Upload video bad file extension",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video",
+											"type": "file",
+											"src": "/C:/Users/dandjelkovic/Downloads/SamsungDeXSetupWin.exe"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/video/7/uploadVideo/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"video",
+										"7",
+										"uploadVideo",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-/1BctOZfI9HUiikyGHz7sO4T6hY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jun 2020 12:36:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -4002,\n    \"message\": \"Bad file extension!\"\n}"
+						},
+						{
+							"name": "Upload video",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video",
+											"type": "file",
+											"src": "/C:/Users/dandjelkovic/Desktop/assets/video4.mp4"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/video/5/uploadVideo/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"video",
+										"5",
+										"uploadVideo",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-MXurHat8MUQi0Y1kBG+lQ1VM194\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Jun 2020 23:32:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"videoId\": 5,\n    \"videoPath\": \"2020624-3 5 3 1 7 7 7 1 2 7-video4.mp4\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a single video",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/video/6/deleteVideo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"video",
+								"6",
+								"deleteVideo",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a single video",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/video/6/deleteVideo/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"video",
+										"6",
+										"deleteVideo",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-H/MyA3NjtRiGW5XByzLi3gkZhWQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jun 2020 11:26:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"statusCode\": -4004,\n    \"message\": \"One video deleted!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add new video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Sport Car BMW\",\r\n    \"description\": \"BMW Interior\",\r\n    \"name\": \"Car\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/video/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"video",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "868b8f33-f155-4636-8157-860fa67cbcc6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2905b223-62c3-48bb-bd76-0a5221f031e8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -2297,6 +2313,716 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Administrator Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/administrator/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"administrator",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Administrator Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/administrator/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"administrator",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"130-FWkGpOFmQd2mo9mCjEFaVsB9nl8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jun 2020 13:45:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 10,\n    \"username\": \"admin\",\n    \"isActive\": 1,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlzdHJhdG9ySWQiOjEwLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTk0MzAyMzQyLjAxLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNS4wIiwiaWF0IjoxNTkzMDkyNzQyfQ.OYyZpV_Ewy7IBf4YBdexOTcGdIoYM3UG4HsKMhsgCw8\"\n}"
+						},
+						{
+							"name": "Login - when the administrator does not exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-jVzHjGg0W81AgoBNOOnaoLkouLY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Jun 2020 08:57:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3001,\n    \"message\": null\n}"
+						},
+						{
+							"name": "Administrator Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/administrator/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"administrator",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "305"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"131-qFdpMwU4V7nHbmoOS3MXA0JBHNk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jun 2020 17:19:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 10,\n    \"identity\": \"admin\",\n    \"isActive\": 1,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlkIjoxMCwiaWRlbnRpdHkiOiJhZG1pbiIsImV4cCI6MTU5NDMxNTE1My43MDksImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI1LjAiLCJpYXQiOjE1OTMxMDU1NTN9.TcqbH4axzY51M8wYmV0nEQybV8iG1YxuM2-lverdrYo\"\n}"
+						},
+						{
+							"name": "Login - when administartor exists and password is correct",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "305"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"131-1VOBmMKgFGVi3l3IxV6xePJ+ISo\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Jun 2020 08:51:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 10,\n    \"username\": \"admin\",\n    \"isActive\": 1,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlzdHJhdG9ySWQiOjEwLCJ1c2VybmFtZSI6ImFkbWluIiwiZXh0IjoxNTk0MTExODk3LjA5NSwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjUuMCIsImlhdCI6MTU5MjkwMjI5N30.OBeyRr5sp_4Uqr61RyhO74cvBvmGFgFCIGmGoj4Yqco\"\n}"
+						},
+						{
+							"name": "Login - when an administartor exists but password is not correct",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin1\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-yGnd1fUn+KRemOJUJKfIJoExxS4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Jun 2020 08:56:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3002,\n    \"message\": null\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c7d2d0ea-42ae-4353-bcca-246bb50e4464",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "35a2cfac-3d5b-423b-9e81-d3be83a3310d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/category/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"category",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1284"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"504-5PyqdgemRu5F/8AqeSFmeBF9XwY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jun 2020 15:09:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"categoryId\": 16,\n        \"name\": \"Sport\",\n        \"parentCategoryId\": 17,\n        \"videoId\": 1,\n        \"categories\": [\n            {\n                \"categoryId\": 17,\n                \"name\": \"Cars\",\n                \"parentCategoryId\": 16,\n                \"videoId\": 2\n            }\n        ],\n        \"video\": {\n            \"videoId\": 1,\n            \"videoPath\": \"storage/video1.mp4\",\n            \"title\": \"Awesome basketball\",\n            \"description\": \"Someone shooting to the basket while raining\"\n        }\n    },\n    {\n        \"categoryId\": 17,\n        \"name\": \"Cars\",\n        \"parentCategoryId\": 16,\n        \"videoId\": 2,\n        \"categories\": [\n            {\n                \"categoryId\": 16,\n                \"name\": \"Sport\",\n                \"parentCategoryId\": 17,\n                \"videoId\": 1\n            }\n        ],\n        \"video\": {\n            \"videoId\": 2,\n            \"videoPath\": \"storage/video2.mp4\",\n            \"title\": \"Beautiful Mercedes\",\n            \"description\": \"Mercedes on track \"\n        }\n    },\n    {\n        \"categoryId\": 18,\n        \"name\": \"Nature\",\n        \"parentCategoryId\": 19,\n        \"videoId\": 3,\n        \"categories\": [\n            {\n                \"categoryId\": 19,\n                \"name\": \"Cities\",\n                \"parentCategoryId\": 18,\n                \"videoId\": 4\n            }\n        ],\n        \"video\": {\n            \"videoId\": 3,\n            \"videoPath\": \"storage/video3.mp4\",\n            \"title\": \"Cloudy mountains\",\n            \"description\": \"Video recorded on the top of the mountain\"\n        }\n    },\n    {\n        \"categoryId\": 19,\n        \"name\": \"Cities\",\n        \"parentCategoryId\": 18,\n        \"videoId\": 4,\n        \"categories\": [\n            {\n                \"categoryId\": 18,\n                \"name\": \"Nature\",\n                \"parentCategoryId\": 19,\n                \"videoId\": 3\n            }\n        ],\n        \"video\": {\n            \"videoId\": 4,\n            \"videoPath\": \"storage/video4.mp4\",\n            \"title\": \"Rain in NY\",\n            \"description\": \"New York City rain.\"\n        }\n    },\n    {\n        \"categoryId\": 56,\n        \"name\": \"test123\",\n        \"parentCategoryId\": null,\n        \"videoId\": 86,\n        \"categories\": [],\n        \"video\": {\n            \"videoId\": 86,\n            \"videoPath\": \"0\",\n            \"title\": \"test123\",\n            \"description\": \"test123\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a single category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/category/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"videoId\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a new category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"test\",\r\n    \"videoId\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/category/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"category",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bc-3+ZT3gisYgHA9u9g8/cQsj20ASY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jun 2020 15:27:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"categoryId\": 65,\n    \"name\": \"test\",\n    \"parentCategoryId\": null,\n    \"videoId\": 5,\n    \"categories\": [],\n    \"video\": {\n        \"videoId\": 5,\n        \"videoPath\": \"2020624-5 5 3 1 9 7 4 6 8 5-video4.mp4\",\n        \"title\": \"0\",\n        \"description\": \"0\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit a single category",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Napon\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/category/56",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"56"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit a single category",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Napon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/category/56",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"category",
+										"56"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "166"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a6-u6F4Xd2bUh3y7Ikrs7CXhdr2g9M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jun 2020 15:29:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"categoryId\": 56,\n    \"name\": \"Napon\",\n    \"parentCategoryId\": null,\n    \"videoId\": 86,\n    \"categories\": [],\n    \"video\": {\n        \"videoId\": 86,\n        \"videoPath\": \"0\",\n        \"title\": \"test123\",\n        \"description\": \"test123\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "aaba23a7-e49b-44e0-bec2-6d3137c3dd33",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1927054a-4d0f-452e-ac5f-883bdac45d2e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlkIjoxMCwiaWRlbnRpdHkiOiJhZG1pbiIsImV4cCI6MTU5NDMxNTE1My43MDksImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI1LjAiLCJpYXQiOjE1OTMxMDU1NTN9.TcqbH4axzY51M8wYmV0nEQybV8iG1YxuM2-lverdrYo",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3ab55338-ec4b-434e-bb50-19f7e36d84f5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "edc44f11-7533-45cd-b905-8e0e892e5746",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
