@@ -1,4 +1,4 @@
-import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req, Delete } from "@nestjs/common";
+import { Controller, Param, Get, Put, Body, Post, UseInterceptors, UploadedFile, Req, Delete, Patch } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Video } from "src/entities/video.entity";
 import { VideoService } from "src/services/video/video.service";
@@ -9,6 +9,7 @@ import { StorageConfig } from "config/storage.config";
 import { diskStorage } from "multer";
 import * as fileType from 'file-type';
 import * as fs from 'fs';
+import { EditVideoDto } from "src/dtos/video/edit.video.dto";
 
 @Controller('api/video')
 @Crud({
@@ -34,7 +35,11 @@ import * as fs from 'fs';
             }
 
         }
-    }
+    },
+
+    routes: {
+        exclude: [ 'updateOneBase', 'replaceOneBase', 'deleteOneBase' ],
+    },
 })
 
 export class VideoController {
@@ -66,6 +71,11 @@ export class VideoController {
         createVideo( @Body() data: AddVideoDto): Promise<Video | ApiResponse> {
         return this.videoService.createVideo(data);
     }
+        //PATCH http://localhost:3000/api/video/2/
+        @Patch(':id')
+        editFullVideo(@Param('id') id: number, @Body() data: EditVideoDto){
+            return this.videoService.editFullVideo(id, data);
+        }
 
         //POST http://localhost:3000/api/video/:id/uploadVideo/
         @Post(':id/uploadVideo')

@@ -6,6 +6,7 @@ import { Video } from 'src/entities/video.entity';
 import { AddVideoDto } from 'src/dtos/video/add.video.dto';
 import { ApiResponse } from 'src/entities/misc/api.response.class';
 import { Category } from 'src/entities/category.entity';
+import { EditVideoDto } from 'src/dtos/video/edit.video.dto';
 
 @Injectable()
 export class VideoService extends TypeOrmCrudService<Video> {
@@ -54,5 +55,45 @@ export class VideoService extends TypeOrmCrudService<Video> {
                 "category"
             ]
         });
+    }
+
+    async editFullVideo(videoId: number, data: EditVideoDto): Promise<Video | ApiResponse> {
+        const existingVideo: Video = await this.video.findOne(videoId, {
+            relations: ['category']
+        });
+
+        if (!existingVideo) {
+            return new ApiResponse('error', -5001, "Video not found!");
+        }
+
+        existingVideo.title         = data.title;
+        existingVideo.description   = data.description;
+
+        const savedVideo = await this.video.save(existingVideo);
+        if (!savedVideo) {
+            return new ApiResponse('error', -5002, "Could not save new video data!");
+        }
+
+        const newCategory: string = data.name;
+        const lastCategory: string = data.name;
+
+        if (newCategory !== lastCategory) {
+            const newCategory = new Category();
+            newCategory.videoId = videoId;
+            newCategory.categoryId = data.categoryId;
+            newCategory.name = data.name;
+
+            this.category.save(newCategory);
+            if(!savedVideo) {
+                return new ApiResponse('error', - 5003, 'Could not save new category!');
+            }
+        }
+
+        return await this.video.findOne(videoId, {
+            relations: [
+                "category"
+            ]
+        });
+
     }
 }
